@@ -11,6 +11,7 @@ public class CreateStars : MonoBehaviour {
     public float scale;
     public GameObject starscontainer;
     public DateTime time ;
+    public GameObject sun;
     double angVel;
     long prev = 0;
 
@@ -29,13 +30,19 @@ public class CreateStars : MonoBehaviour {
     {
         float theta, phi, r;
         r = s.x;
-        theta = s.y;
-        phi = s.z;
+        theta = s.z;
+        phi = s.y;
         Vector3 cart = new Vector3();
         //Debug.Log(s);
+
+        //cart.x = r * Mathf.Cos(theta) * Mathf.Sin(phi);
+        //cart.z = r * Mathf.Sin(theta) * Mathf.Sin(phi);
+        //cart.y = r * Mathf.Cos(phi);
+
         cart.x = r * Mathf.Cos(theta) * Mathf.Sin(phi);
         cart.y = r * Mathf.Sin(theta) * Mathf.Sin(phi);
         cart.z = r * Mathf.Cos(phi);
+        Debug.Log(cart);
         return cart;
     }
 
@@ -54,7 +61,7 @@ public class CreateStars : MonoBehaviour {
         angVel = 360.0 / (60.0 * 60.0 * 24.0);
         angVel /= 365.25;
 
-        float ra, dec, mag, dist, theta, phi, dscale;
+        float ra, dec, mag, dist, theta, phi;
 
         List<star_data> stars = loadStars();
         foreach (star_data star in stars)
@@ -63,7 +70,7 @@ public class CreateStars : MonoBehaviour {
             ra =  (float)(star.vv2) * 15.0f * Mathf.PI/ 180.0f;
             dec = (float)(star.vv3) * Mathf.PI / 180.0f;  
             mag = (float)(star.vv4);
-            dscale = 1000f;
+            //dscale = 1000f;
 
             if (mag < 4.8f)
             {
@@ -79,7 +86,7 @@ public class CreateStars : MonoBehaviour {
                 //do filtering here using the string props of star_data
                 //createStar(new Vector3(dist, theta, phi));
 
-                createStar(new Vector3(dist, phi, theta));
+                createStar(new Vector3(dist, theta, phi));
 
                 // (float)(minimum_distance + distance_mult * star.vv4),
                 // (float)(star.vv2),
@@ -88,11 +95,15 @@ public class CreateStars : MonoBehaviour {
         }
     }
 	
-	public void UpdateStars (DateTime t) {
+	public void UpdateStars (DateTime t, float sunR, float sunD, float sunA) {
         if (prev != 0)
         {
             long secs = (int)(t.ToUniversalTime() - new DateTime(1970, 1, 1)).TotalSeconds - prev;
-            starscontainer.transform.Rotate(new Vector3(0, (float)(-1.0f*secs*angVel), 0));
+            //starscontainer.transform.Rotate(new Vector3(0, (float)(-1.0f*secs*angVel), 0));
+
+            sun.transform.localPosition = sphToCart(new Vector3(sunR, sunA * Mathf.Deg2Rad, Mathf.PI - sunD * Mathf.Deg2Rad));
+
+            //Debug.Log(sunA.ToString() + " " + sunD.ToString());
         }
         prev = (long)(t.ToUniversalTime() - new DateTime(1970, 1, 1)).TotalSeconds;
     }

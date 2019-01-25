@@ -1303,10 +1303,15 @@ public class SunMovement : MonoBehaviour {
     void Update () {
         //rad += Time.deltaTime*.5f;
         t = t.AddDays(Time.deltaTime * sld.value);
-        transform.position = getSunCart(t);
-        txt.text = t.ToString("MM/dd/yyyy HH:mm:ss") + "\n" + spa.E.ToString() + "\n" + spa.Azimuth.ToString();
 
-        s.UpdateStars(t);
+        //transform.position = getSunCart(t);
+        fromDatetime(t);
+        spa.R *= sundist;
+
+        txt.text = t.ToString("MM/dd/yyyy HH:mm:ss") + "\n" + spa.Delta.ToString() + "\n" + spa.Alpha.ToString();
+
+        s.UpdateStars(t,(float)spa.R, (float)spa.Delta, (float)spa.Alpha);
+
         //23.5*Mathf.Mathf.Sin((float)transform.rotation.y * Mathf.Deg2Rad)
         //transform.Rotate(new Vector3(23.5f * Mathf.Mathf.Sin((float)transform.rotation.y * Mathf.Deg2Rad), 5f * Time.deltaTime, -transform.eulerAngles.z));
         //transform.rotation *= Quaternion.AngleAxis(5f * Time.deltaTime, Vector3.up);
