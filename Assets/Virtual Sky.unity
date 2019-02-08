@@ -194,7 +194,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -546,63 +546,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338376035}
   m_CullTransparentMesh: 0
---- !u!1001 &339948010
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 1cc11ffbe578fa547b800e780e45b9c1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 1cc11ffbe578fa547b800e780e45b9c1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 1cc11ffbe578fa547b800e780e45b9c1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 1cc11ffbe578fa547b800e780e45b9c1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.000000021855694
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 1cc11ffbe578fa547b800e780e45b9c1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 1cc11ffbe578fa547b800e780e45b9c1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 1cc11ffbe578fa547b800e780e45b9c1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 1cc11ffbe578fa547b800e780e45b9c1, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 1cc11ffbe578fa547b800e780e45b9c1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 1cc11ffbe578fa547b800e780e45b9c1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 1cc11ffbe578fa547b800e780e45b9c1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 1cc11ffbe578fa547b800e780e45b9c1, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1683126e1dd776a4db908ca88829a532, type: 2}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1cc11ffbe578fa547b800e780e45b9c1, type: 3}
 --- !u!1 &381424945
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,7 +865,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1186051d2a09b134b86c0f17010afb1c, type: 2}
+  - {fileID: 2100000, guid: 4ec374738cb5a804f83c38b5600ac4db, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -959,7 +902,7 @@ Transform:
   m_GameObject: {fileID: 960154833}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1000}
-  m_LocalScale: {x: 150, y: 150, z: 150}
+  m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children: []
   m_Father: {fileID: 543148458}
   m_RootOrder: 0
@@ -1084,12 +1027,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!4 &1445742600 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 1cc11ffbe578fa547b800e780e45b9c1,
-    type: 3}
-  m_PrefabInstance: {fileID: 339948010}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1796277197
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,12 +1329,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860328459}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.951, y: 0.569, z: 0.071}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalRotation: {x: 0.00000001545431, y: 0.7071068, z: 0.00000001545431, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1445742600}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &1860328464
 MonoBehaviour:

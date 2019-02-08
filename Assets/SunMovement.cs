@@ -1310,7 +1310,7 @@ public class SunMovement : MonoBehaviour {
 
         txt.text = t.ToString("MM/dd/yyyy HH:mm:ss") + "\n" + spa.Delta.ToString() + "\n" + spa.Alpha.ToString();
 
-        s.UpdateStars(t,(float)spa.R, (float)spa.Delta, (float)spa.Alpha);
+        s.UpdateStars(t,(float)spa.R,(float)spa.Alpha, (float)spa.Delta);
 
         //23.5*Mathf.Mathf.Sin((float)transform.rotation.y * Mathf.Deg2Rad)
         //transform.Rotate(new Vector3(23.5f * Mathf.Mathf.Sin((float)transform.rotation.y * Mathf.Deg2Rad), 5f * Time.deltaTime, -transform.eulerAngles.z));

@@ -30,8 +30,9 @@ public class CreateStars : MonoBehaviour {
     {
         float theta, phi, r;
         r = s.x;
-        theta = s.z;
         phi = s.y;
+        theta = s.z;
+        
         Vector3 cart = new Vector3();
         //Debug.Log(s);
 
@@ -42,7 +43,7 @@ public class CreateStars : MonoBehaviour {
         cart.x = r * Mathf.Cos(theta) * Mathf.Sin(phi);
         cart.y = r * Mathf.Sin(theta) * Mathf.Sin(phi);
         cart.z = r * Mathf.Cos(phi);
-        Debug.Log(cart);
+        //Debug.Log(cart);
         return cart;
     }
 
@@ -95,13 +96,16 @@ public class CreateStars : MonoBehaviour {
         }
     }
 	
-	public void UpdateStars (DateTime t, float sunR, float sunD, float sunA) {
+	public void UpdateStars (DateTime t, float sunR, float sunA, float sunD) {
         if (prev != 0)
         {
             long secs = (int)(t.ToUniversalTime() - new DateTime(1970, 1, 1)).TotalSeconds - prev;
             //starscontainer.transform.Rotate(new Vector3(0, (float)(-1.0f*secs*angVel), 0));
-
-            sun.transform.localPosition = sphToCart(new Vector3(sunR, sunA * Mathf.Deg2Rad, Mathf.PI - sunD * Mathf.Deg2Rad));
+            
+            if(sunD > 0)
+                sun.transform.localPosition = sphToCart(new Vector3(sunR, -sunA * Mathf.Deg2Rad, sunD * Mathf.Deg2Rad));
+            else
+                sun.transform.localPosition = sphToCart(new Vector3(sunR, -sunA * Mathf.Deg2Rad, -sunD * Mathf.Deg2Rad));
 
             //Debug.Log(sunA.ToString() + " " + sunD.ToString());
         }
